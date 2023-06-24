@@ -1,9 +1,18 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html",
-  "./public/**/*.{js,ts,jsx,tsx}",],
+  darkMode: 'class',
+  content: ["./index.html", "./main.js",
+  "./public/**/*.{html,js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'hero': "url('../images/hero.png')"
+      },
+      fontFamily: {
+        'inter' : "'Inter', sans-serif"
+      }
+      
+    },
   },
   plugins: [],
 }
