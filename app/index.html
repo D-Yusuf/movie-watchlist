@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Movies</title>
     <link rel="stylesheet" href="./public/index.css" />
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,13 +19,13 @@
     class="font-inter flex justify-center bg-[#1C1C1C] text-white dark:text-black"
   >
     <!-- CONTAINER -->
-    <div class="container max-w-4xl bg-white dark:bg-[#121212]">
+    <div class="container max-w-[550px] bg-white dark:bg-[#121212]">
       <!-- HEADER -->
       <header
-        class="bg-hero bg-[#121212] py-20 px-[2.6rem] bg-no-repeat bg-cover text-white flex justify-between flex-col"
+        class="bg-hero bg-[#121212] py-20 sm:px-[2.6rem] px-4 bg-no-repeat bg-cover text-white flex justify-between flex-col"
       >
         <div class="flex justify-between">
-          <h1 class="text-[2.67rem] font-extrabold">Find your film</h1>
+          <h1 class="sm:text-[2.67rem] text-3xl font-extrabold">Find your film</h1>
           <button>My Watchlist</button>
         </div>
         <!-- FORM -->
@@ -60,7 +60,7 @@
     </header>
       <!--// HEADER //-->
       <!-- MOVIE SECTION -->
-      <section class="mt-11 min-h-screen mx-11">
+      <section class="mt-11 min-h-screen sm:mx-11 mx-2">
         <!-- SEARCH FOR SOMETHING -->
         <div
           class="flex flex-col items-center absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-1/2 hidden"
@@ -90,33 +90,37 @@
             <img src="./images/movie-pic-test.png" alt="movie-pic" />
             <!-- movie details -->
             <div class="ml-[1.31rem]">
-              <span class="flex items-center">
+              <!-- name-star-rating -->
+              <div class="flex items-center">
                 <h1 class="text-lg font-medium mr-2">Blade Runner</h1>
-                <img
-                  class="mr-1 w-[0.9375rem] h-[0.9375rem]"
-                  src="./images/star-icon.svg"
-                  alt="star"
-                />
-                <p class="text-xs">8.1</p>
-              </span>
-
-              <span class="flex mt-[0.69rem] items-center">
-                <p class="mr-[1.19rem] text-xs">117 min</p>
-                <p class="mr-[1.19rem] text-xs">Action, Drama, Sci-fi</p>
+                <span class="flex ">
+                  <img
+                    class="mr-1 w-[0.9375rem] h-[0.9375rem]"
+                    src="./images/star-icon.svg"
+                    alt="star"
+                  />
+                  <p class="text-xs">8.1</p>
+                </span>
+              </div>
+              <!-- min-tags-watchlist -->
+              <div class="flex mt-[0.69rem]">
+                <p class="sm:mr-[1.19rem] mr-3 text-xs">117 min</p>
+                <p class="sm:mr-[1.19rem] mr-3 text-xs">Action, Drama, Sci-fi</p>
                 <input hidden type="checkbox" id="MOVIE-ID-HERE" />
                 <label for="MOVIE-ID-HERE" class="text-xs gap-x-[0.31rem] flex">
                   <img class="dark:hidden" src="./images/add-movie-icon.svg" alt="" />
                   <img class="dark:block hidden" src="./images/add-movie-icon-dark.svg" alt="" />
                   Watchlist
                 </label>
-              </span>
-              <span class="flex mt-2">
+              </div>
+              <!-- description -->
+              <div class="flex mt-2">
                 <p class="text-[#6B7280] dark:text-[#A5A5A5] max-w-xs text-sm">
                   A blade runner must pursue and terminate four replicants who
                   stole a ship in space, and have returned to Earth to find
                   their creator.
                 </p>
-              </span>
+              </div>
             </div>
           </div>
           <hr class="bg-[#E5E7EB] w-full my-[1.3rem]" />

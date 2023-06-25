@@ -3,5 +3,7 @@
 @tailwind utilities;
 
 @layer base{
-    
+    *{
+        transition: all 200ms;
+    }
 }
