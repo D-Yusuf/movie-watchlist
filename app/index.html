@@ -28,38 +28,42 @@
           <h1 class="text-[2.67rem] font-extrabold">Find your film</h1>
           <button>My Watchlist</button>
         </div>
+        <!-- FORM -->
         <form
-          class="relative top-[6rem] w-full flex ring-1 ring-[#D1D5DB] rounded-md"
+        class="relative top-[6rem] w-full flex ring-1 ring-[#D1D5DB] dark:ring-0 rounded-md"
         >
-          <!-- SEARCH INPUT -->
-          <div
-          class="w-full rounded-l-md rounded-b-md text-[#6B7280] bg-white dark:bg-[#2E2E2F] flex"
-          >
-          <label for="movie-search" class="py-2 pl-3"
-          ><img src="./images/search-icon.svg" alt="search" class="w-5 h-5"
-          /></label>
-          <input
-          id="movie-search"
-          type="text"
-          placeholder="Search for a movie"
-          class="py-2 px-2 w-full bg-inherit text-[#6B7280] dark:text-[#A5A5A5]"
-          />
-        </div>
-        <!--// SEARCH INPUT //-->
-        <!-- submit search -->
+        <!-- SEARCH INPUT -->
+        <div
+        class="w-full rounded-l-md rounded-b-md text-[#6B7280] bg-white dark:bg-[#2E2E2F] flex"
+        >
+        <label for="movie-search" class="py-2 pl-3"
+        ><img src="./images/search-icon.svg" alt="search" class="w-5 h-5"
+        /></label>
+        <input
+        id="movie-search"
+        type="text"
+        autocomplete="off"
+        placeholder="Search for a movie"
+        class="focus:outline-none py-2 px-2 w-full bg-inherit text-[#6B7280] dark:text-[#A5A5A5]"
+        />
+      </div>
+          <!--// SEARCH INPUT //-->
+          <!-- submit search -->
           <button
-            type="submit"
-            class="py-2 px-[0.6875rem] w-[7.5rem] bg-[#F9FAFB] text-black text-sm font-medium rounded-r-md rounded-b-md"
+          type="submit"
+          class="py-2 px-[0.6875rem] w-[7.5rem] bg-[#F9FAFB] dark:bg-[#4B4B4B] dark:text-white text-black text-sm font-medium rounded-r-md rounded-br-md"
           >
-            Search
-          </button>
-        </form>
-      </header>
+          Search
+        </button>
+      </form>
+      <!--// FORM //-->
+    </header>
       <!--// HEADER //-->
       <!-- MOVIE SECTION -->
-      <section class="mt-11 min-h-screen">
+      <section class="mt-11 min-h-screen mx-11">
+        <!-- SEARCH FOR SOMETHING -->
         <div
-          class="flex flex-col items-center absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-1/2"
+          class="flex flex-col items-center absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-1/2 hidden"
         >
           <img
             class="w-[4.375rem] h-[3.828rem] dark:hidden"
@@ -75,6 +79,50 @@
             Start exploring
           </h1>
         </div>
+        <!--// SEARCH FOR SOMETHING //-->
+        <!-- OUTPUT -->
+        <div
+          id="output-movies"
+          class="flex flex-col text-black dark:text-white"
+        >
+          <!-- copy -->
+          <div class="flex">
+            <img src="./images/movie-pic-test.png" alt="movie-pic" />
+            <!-- movie details -->
+            <div class="ml-[1.31rem]">
+              <span class="flex items-center">
+                <h1 class="text-lg font-medium mr-2">Blade Runner</h1>
+                <img
+                  class="mr-1 w-[0.9375rem] h-[0.9375rem]"
+                  src="./images/star-icon.svg"
+                  alt="star"
+                />
+                <p class="text-xs">8.1</p>
+              </span>
+
+              <span class="flex mt-[0.69rem] items-center">
+                <p class="mr-[1.19rem] text-xs">117 min</p>
+                <p class="mr-[1.19rem] text-xs">Action, Drama, Sci-fi</p>
+                <input hidden type="checkbox" id="MOVIE-ID-HERE" />
+                <label for="MOVIE-ID-HERE" class="text-xs gap-x-[0.31rem] flex">
+                  <img class="dark:hidden" src="./images/add-movie-icon.svg" alt="" />
+                  <img class="dark:block hidden" src="./images/add-movie-icon-dark.svg" alt="" />
+                  Watchlist
+                </label>
+              </span>
+              <span class="flex mt-2">
+                <p class="text-[#6B7280] dark:text-[#A5A5A5] max-w-xs text-sm">
+                  A blade runner must pursue and terminate four replicants who
+                  stole a ship in space, and have returned to Earth to find
+                  their creator.
+                </p>
+              </span>
+            </div>
+          </div>
+          <hr class="bg-[#E5E7EB] w-full my-[1.3rem]" />
+          <!-- //copy// -->
+        </div>
+        <!-- OUTPUT -->
       </section>
       <!--// MOVIE SECTION //-->
     </div>
