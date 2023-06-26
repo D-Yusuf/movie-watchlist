@@ -30,6 +30,7 @@
         </div>
         <!-- FORM -->
         <form
+        id="search-form"
         class="relative top-[6rem] w-full flex ring-1 ring-[#D1D5DB] dark:ring-0 rounded-md"
         >
         <!-- SEARCH INPUT -->
@@ -107,10 +108,10 @@
                 <p class="sm:mr-[1.19rem] mr-3 text-xs">117 min</p>
                 <p class="sm:mr-[1.19rem] mr-3 text-xs">Action, Drama, Sci-fi</p>
                 <input hidden type="checkbox" id="MOVIE-ID-HERE" />
-                <label for="MOVIE-ID-HERE" class="text-xs gap-x-[0.31rem] flex">
-                  <img class="dark:hidden" src="./images/add-movie-icon.svg" alt="" />
-                  <img class="dark:block hidden" src="./images/add-movie-icon-dark.svg" alt="" />
-                  Watchlist
+                <label for="MOVIE-ID-HERE" class="text-xs gap-x-[0.31rem] flex sm:w-fit phone:ml-0 ml-auto">
+                  <img class="dark:hidden phone:w-fit w-5" src="./images/add-movie-icon.svg" alt="" />
+                  <img class="dark:block hidden phone:w-fit w-5" src="./images/add-movie-icon-dark.svg" alt="" />
+                  <p class="phone:block hidden">Watchlist</p>
                 </label>
               </div>
               <!-- description -->

@@ -10,7 +10,11 @@ export default {
       },
       fontFamily: {
         'inter' : "'Inter', sans-serif"
+      },
+      screens:{
+        "phone": "420px"
       }
+      
       
     },
   },
