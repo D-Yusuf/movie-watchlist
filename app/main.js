@@ -5,7 +5,7 @@ searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const searchedMovie = document.getElementById("movie-search").value;
   loadingScreen.classList.remove("hidden")
-  fetch(`http://www.omdbapi.com/?apikey=${apiKey}&s=${searchedMovie}`)
+  fetch(`https://www.omdbapi.com/?apikey=${apiKey}&s=${searchedMovie}`)
     .then((res) => res.json())
     .then((data) => {
       renderMovies(data.Search);
@@ -24,7 +24,7 @@ async function getSearchedImdb(movieArr) {
   const imdbArr = getImdb(movieArr);
   let searchedMovies = [];
   for (let id of imdbArr) {
-    await fetch(`http://www.omdbapi.com/?apikey=${apiKey}&i=${id}`)
+    await fetch(`https://www.omdbapi.com/?apikey=${apiKey}&i=${id}`)
       .then((res) => res.json())
       .then((data) => searchedMovies.push(data));
   }
@@ -75,7 +75,6 @@ async function renderMovies(movieArr) {
   });
 
   document.getElementById("output-movies").innerHTML = moviesHtml;
-  console.log(document.getElementById("output-movies").innerHTML);
 }
 document.addEventListener("click", (e) => {});
 // <!-- copy -->
