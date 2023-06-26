@@ -1,11 +1,14 @@
 import starIcon from "./images/star-icon.svg"
+import addIcon from "./images/add-movie-icon.svg"
+import addIconDark from "./images/add-movie-icon-dark.svg"
+
 const searchForm = document.getElementById("search-form");
 const loadingScreen = document.getElementById("loading-screen");
 const apiKey = import.meta.env.VITE_API_KEY;
 searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const searchedMovie = document.getElementById("movie-search").value;
-  loadingScreen.classList.remove("hidden")
+  loadingScreen.classList.remove("hidden") //add loading screen
   fetch(`https://www.omdbapi.com/?apikey=${apiKey}&s=${searchedMovie}`)
     .then((res) => res.json())
     .then((data) => {
@@ -34,7 +37,7 @@ async function getSearchedImdb(movieArr) {
 
 async function renderMovies(movieArr) {
   const movies = await getSearchedImdb(movieArr);
-  loadingScreen.classList.add("hidden")
+  loadingScreen.classList.add("hidden") // remove loading screen
   let moviesHtml = ``;
   movies.forEach((movie) => {
     const { Title, Genre, Plot, Poster, imdbRating, imdbID, Runtime } = movie;
@@ -59,8 +62,8 @@ async function renderMovies(movieArr) {
         <p class="sm:mr-[1.19rem] mr-3 text-xs">${Genre}</p>
         <input hidden type="checkbox" id="${imdbID}" />
         <label for="${imdbID}" class="text-xs gap-x-[0.31rem] flex sm:w-fit phone:ml-0 ml-auto">
-          <img class="dark:hidden phone:w-fit w-5" src="./images/add-movie-icon.svg" alt="" />
-          <img class="dark:block hidden phone:w-fit w-5" src="./images/add-movie-icon-dark.svg" alt="" />
+          <img class="dark:hidden phone:w-fit w-5" src=${addIcon} alt="add" />
+          <img class="dark:block hidden phone:w-fit w-5" src=${addIconDark} alt="add" />
           <p class="phone:block hidden">Watchlist</p>
         </label>
       </div>
