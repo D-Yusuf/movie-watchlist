@@ -26,7 +26,7 @@
       >
         <div class="flex justify-between">
           <h1 class="sm:text-[2.67rem] text-3xl font-extrabold">Find your film</h1>
-          <button>My Watchlist</button>
+          <a href="./public/watchlist.html" class="self-center underline">My Watchlist</a>
         </div>
         <!-- FORM -->
         <form
@@ -61,10 +61,15 @@
     </header>
       <!--// HEADER //-->
       <!-- MOVIE SECTION -->
-      <section class="mt-11 min-h-screen sm:mx-11 mx-2">
-        <!-- SEARCH FOR SOMETHING -->
+      <section class="mt-11 min-h-screen phone:mx-5 md:mx-11 mx-2">
+        <!-- OUTPUT -->
         <div
-          class="flex flex-col items-center absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-1/2 hidden"
+        id="output-movies"
+        class="flex flex-col text-black dark:text-white"
+        >
+        <!-- SEARCH FOR SOMETHING put this inside output movies later -->
+        <div
+          class="flex flex-col items-center absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-1/2"
         >
           <img
             class="w-[4.375rem] h-[3.828rem] dark:hidden"
@@ -81,58 +86,52 @@
           </h1>
         </div>
         <!--// SEARCH FOR SOMETHING //-->
-        <!-- OUTPUT -->
-        <div
-          id="output-movies"
-          class="flex flex-col text-black dark:text-white"
-        >
-          <!-- copy -->
-          <div class="flex">
-            <img src="./images/movie-pic-test.png" alt="movie-pic" />
-            <!-- movie details -->
-            <div class="ml-[1.31rem]">
-              <!-- name-star-rating -->
-              <div class="flex items-center">
-                <h1 class="text-lg font-medium mr-2">Blade Runner</h1>
-                <span class="flex ">
-                  <img
-                    class="mr-1 w-[0.9375rem] h-[0.9375rem]"
-                    src="./images/star-icon.svg"
-                    alt="star"
-                  />
-                  <p class="text-xs">8.1</p>
-                </span>
-              </div>
-              <!-- min-tags-watchlist -->
-              <div class="flex mt-[0.69rem]">
-                <p class="sm:mr-[1.19rem] mr-3 text-xs">117 min</p>
-                <p class="sm:mr-[1.19rem] mr-3 text-xs">Action, Drama, Sci-fi</p>
-                <input hidden type="checkbox" id="MOVIE-ID-HERE" />
-                <label for="MOVIE-ID-HERE" class="text-xs gap-x-[0.31rem] flex sm:w-fit phone:ml-0 ml-auto">
-                  <img class="dark:hidden phone:w-fit w-5" src="./images/add-movie-icon.svg" alt="" />
-                  <img class="dark:block hidden phone:w-fit w-5" src="./images/add-movie-icon-dark.svg" alt="" />
-                  <p class="phone:block hidden">Watchlist</p>
-                </label>
-              </div>
-              <!-- description -->
-              <div class="flex mt-2">
-                <p class="text-[#6B7280] dark:text-[#A5A5A5] max-w-xs text-sm">
-                  A blade runner must pursue and terminate four replicants who
-                  stole a ship in space, and have returned to Earth to find
-                  their creator.
-                </p>
-              </div>
-            </div>
-          </div>
-          <hr class="bg-[#E5E7EB] w-full my-[1.3rem]" />
-          <!-- //copy// -->
+          
         </div>
         <!-- OUTPUT -->
       </section>
       <!--// MOVIE SECTION //-->
     </div>
     <!-- CONTAINER -->
-
+    <!-- LOADING SCREEN -->
+    <div id="loading-screen" class="absolute w-screen h-screen bg-gray-600 z-10 bg-opacity-30 flex hidden">
+      <div class="w-52 h-52 border-2 border-black border-r-white m-auto rounded-full animate-spin"></div>
+    </div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
+<!-- if things didnt work put this in #output-movies div -->
+  <!-- <div class="flex">
+    <img src="./images/movie-pic-test.png" class="max-w-[6.5rem] max-h-[9.2rem]" alt="movie-pic" />
+    <div class="ml-[1.31rem]">
+      <div class="flex items-center">
+        <h1 class="text-lg font-medium mr-2">Blade Runner</h1>
+        <span class="flex ">
+          <img
+            class="mr-1 w-[0.9375rem] h-[0.9375rem]"
+            src="./images/star-icon.svg"
+            alt="star"
+          />
+          <p class="text-xs">8.1</p>
+        </span>
+      </div>
+      <div class="flex mt-[0.69rem]">
+        <p class="sm:mr-[1.19rem] mr-3 text-xs">117 min</p>
+        <p class="sm:mr-[1.19rem] mr-3 text-xs">Action, Drama, Sci-fi</p>
+        <input hidden type="checkbox" id="MOVIE-ID-HERE" />
+        <label for="MOVIE-ID-HERE" class="text-xs gap-x-[0.31rem] flex sm:w-fit phone:ml-0 ml-auto">
+          <img class="dark:hidden phone:w-fit w-5" src="./images/add-movie-icon.svg" alt="" />
+          <img class="dark:block hidden phone:w-fit w-5" src="./images/add-movie-icon-dark.svg" alt="" />
+          <p class="phone:block hidden">Watchlist</p>
+        </label>
+      </div>
+      <div class="flex mt-2">
+        <p class="text-[#6B7280] dark:text-[#A5A5A5] max-w-xs text-sm">
+          A blade runner must pursue and terminate four replicants who
+          stole a ship in space, and have returned to Earth to find
+          their creator.
+        </p>
+      </div>
+    </div>
+  </div>
+  <hr class="bg-[#E5E7EB] w-full my-[1.3rem]" /> -->
