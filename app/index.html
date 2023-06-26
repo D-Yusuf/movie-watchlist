@@ -41,6 +41,7 @@
         ><img src="./images/search-icon.svg" alt="search" class="w-5 h-5"
         /></label>
         <input
+        required
         id="movie-search"
         type="text"
         autocomplete="off"
@@ -69,6 +70,7 @@
         >
         <!-- SEARCH FOR SOMETHING put this inside output movies later -->
         <div
+          id="search-placeholder"
           class="flex flex-col items-center absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-1/2"
         >
           <img
@@ -86,6 +88,7 @@
           </h1>
         </div>
         <!--// SEARCH FOR SOMETHING //-->
+        
           
         </div>
         <!-- OUTPUT -->
@@ -97,6 +100,7 @@
     <div id="loading-screen" class="absolute w-screen h-screen bg-gray-600 z-10 bg-opacity-30 flex hidden">
       <div class="w-52 h-52 border-2 border-black border-r-white m-auto rounded-full animate-spin"></div>
     </div>
+    <!--// LOADING SCREEN //-->
     <script type="module" src="/main.js"></script>
   </body>
 </html>
