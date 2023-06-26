@@ -1,3 +1,4 @@
+import starIcon from "./images/star-icon.svg"
 const searchForm = document.getElementById("search-form");
 const loadingScreen = document.getElementById("loading-screen");
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -47,7 +48,7 @@ async function renderMovies(movieArr) {
         <span class="flex ">
           <img
             class="mr-1 w-[0.9375rem] h-[0.9375rem]"
-            src="./images/star-icon.svg"
+            src="${starIcon}"
             alt="star"
           />
           <p class="text-xs">${imdbRating}</p>
