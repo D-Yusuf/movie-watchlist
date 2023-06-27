@@ -6,4 +6,10 @@
     *{
         transition: all 200ms;
     }
+    .image-light{
+        @apply dark:hidden phone:w-fit min-w-[1.25rem]; 
+    }
+    .image-dark{
+        @apply dark:block hidden phone:w-fit min-w-[1.25rem];
+    }
 }

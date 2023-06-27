@@ -1,8 +1,9 @@
 const apiKey = import.meta.env.VITE_API_KEY;
-import { data } from "autoprefixer";
 import starIcon from "./images/star-icon.svg";
-let addRemoveIcon = "./images/add-movie-icon.svg";
-let addRemoveIconDark = "./images/add-movie-icon-dark.svg";
+import addIcon from "./images/add-movie-icon.svg";
+import addIconDark from "./images/add-movie-icon-dark.svg";
+import removeIcon from "./images/remove-movie-icon.svg";
+import removeIconDark from "./images/remove-movie-icon-dark.svg";
 let savedMovies = [];
 let checkedBoxes = [];
 const moviesFromLocalStorage = JSON.parse(localStorage.getItem("movies"));
@@ -13,12 +14,7 @@ const searchForm = document.getElementById("search-form");
 const loadingScreen = document.getElementById("loading-screen");
 const searchPlaceholder = document.getElementById("search-placeholder");
 
-window.onload = async () =>{
-  // if (moviesFromLocalStorage && checkBoxesFromLocalStorage) {
-  //   savedMovies = moviesFromLocalStorage;
-  //   await renderMovies(savedMovies);
-  // }
-}
+
 
 searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -82,9 +78,9 @@ async function renderMovies(movieArr) {
         <p class="sm:mr-[1.19rem] mr-3 text-xs">${Runtime}</p>
         <p class="sm:mr-[1.19rem] mr-3 text-xs whitespace-normal"><span class="break-words">${Genre}</span></p>
         <input hidden type="checkbox" data-id="${imdbID}" id="${imdbID}" />
-        <label for="${imdbID}" class="text-xs gap-x-[0.31rem] flex flex-wrap sm:w-fit phone:ml-0 ml-auto justify-center">
-          <img class="dark:hidden phone:w-fit min-w-[1.25rem]" src=${addRemoveIcon} alt="add" />
-          <img class="dark:block hidden phone:w-fit min-w-[1.25rem]" src=${addRemoveIconDark} alt="add" />
+        <label for="${imdbID}" class="cursor-pointer text-xs gap-x-[0.31rem] flex flex-wrap sm:w-fit phone:ml-0 ml-auto justify-center items-center">
+          <img class="image-light" src="${addIcon}" alt="add" />
+          <img class="image-dark" src="${addIconDark}" alt="add" />
           <p class="phone:block hidden">Watchlist</p>
         </label>
       </div>
@@ -103,14 +99,21 @@ async function renderMovies(movieArr) {
 }
 document.addEventListener("click", (e) => {
   if (e.target.dataset.id) {
-    const checkBoxes = document.querySelectorAll(`input[type="checkbox"]`);
+    const checkBoxes = document.querySelectorAll(`input[type="checkbox"]:checked`);
     savedMovies.push(e.target.dataset.id);
     console.log(savedMovies);
-    checkedBoxes = Array.from(checkBoxes).filter((box) => {
-      return box.checked === true;
-    });
+    checkedBoxes = Array.from(checkBoxes)
     saveToLocalStorage();
-    console.log(checkedBoxes);
+    checkBoxes.forEach(box => {
+      if(box.checked){
+        const label = box.nextElementSibling;
+        const imageDark = label.querySelector(".image-dark");
+        const imageLight = label.querySelector(".image-light");
+        imageDark.src = removeIconDark;
+        imageLight.src = removeIcon;
+        console.log(label)
+      }
+    })
   }
 });
 function saveToLocalStorage() {
