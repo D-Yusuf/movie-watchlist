@@ -13,9 +13,11 @@ const searchForm = document.getElementById("search-form");
 const loadingScreen = document.getElementById("loading-screen");
 const searchPlaceholder = document.getElementById("search-placeholder");
 
-if (moviesFromLocalStorage && checkBoxesFromLocalStorage) {
-  savedMovies = moviesFromLocalStorage;
-  await renderMovies(savedMovies);
+window.onload = async () =>{
+  // if (moviesFromLocalStorage && checkBoxesFromLocalStorage) {
+  //   savedMovies = moviesFromLocalStorage;
+  //   await renderMovies(savedMovies);
+  // }
 }
 
 searchForm.addEventListener("submit", (e) => {
@@ -67,7 +69,7 @@ async function renderMovies(movieArr) {
     <div class="ml-[1.31rem]">
       <div class="flex items-center">
         <h1 class="text-lg font-medium mr-2">${Title}</h1>
-        <span class="flex ">
+        <span class="flex">
           <img
             class="mr-1 w-[0.9375rem] h-[0.9375rem]"
             src="${starIcon}"
@@ -80,9 +82,9 @@ async function renderMovies(movieArr) {
         <p class="sm:mr-[1.19rem] mr-3 text-xs">${Runtime}</p>
         <p class="sm:mr-[1.19rem] mr-3 text-xs whitespace-normal"><span class="break-words">${Genre}</span></p>
         <input hidden type="checkbox" data-id="${imdbID}" id="${imdbID}" />
-        <label for="${imdbID}" class="text-xs gap-x-[0.31rem] flex sm:w-fit phone:ml-0 ml-auto text-baseline">
-          <img class="dark:hidden phone:w-fit w-5" src=${addRemoveIcon} alt="add" />
-          <img class="dark:block hidden phone:w-fit w-5" src=${addRemoveIconDark} alt="add" />
+        <label for="${imdbID}" class="text-xs gap-x-[0.31rem] flex flex-wrap sm:w-fit phone:ml-0 ml-auto justify-center">
+          <img class="dark:hidden phone:w-fit min-w-[1.25rem]" src=${addRemoveIcon} alt="add" />
+          <img class="dark:block hidden phone:w-fit min-w-[1.25rem]" src=${addRemoveIconDark} alt="add" />
           <p class="phone:block hidden">Watchlist</p>
         </label>
       </div>
