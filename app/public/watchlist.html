@@ -1,13 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="index.css">
-</head>
-<body>
-    Hello
-    <script src="./watchlist.js" type="module"></script>
-</body>
+<html class="dark" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movies</title>
+    <link rel="stylesheet" href="./index.css" />
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!--// GOOGLE FONTS //-->
+  </head>
+  <body
+    class="font-inter flex justify-center bg-[#1C1C1C] text-white dark:text-black"
+  >
+    <!-- CONTAINER -->
+    <div class="container max-w-[550px] bg-white dark:bg-[#121212]">
+      <!-- HEADER -->
+      <header
+        class="bg-hero bg-[#121212] py-20 sm:px-[2.6rem] px-4 bg-no-repeat bg-cover text-white flex justify-between flex-col"
+      >
+        <div class="flex justify-between">
+          <h1 class="sm:text-[2.67rem] text-3xl font-extrabold">My watchlist</h1>
+          <a href="../index.html" class="self-center underline">Search for movies</a>
+        </div>
+        <!-- FORM -->
+        <form
+        
+        id="search-form"
+        class="relative top-[6rem] w-full flex ring-1 ring-[#D1D5DB] dark:ring-0 rounded-md hidden"
+        >
+        <!-- SEARCH INPUT -->
+        <div
+        class="w-full rounded-l-md rounded-b-md text-[#6B7280] bg-white dark:bg-[#2E2E2F] flex"
+        >
+        <label for="movie-search" class="py-2 pl-3"
+        ><img src="../images/search-icon.svg" alt="search" class="w-5 h-5"
+        /></label>
+        <input
+        required
+        id="movie-search"
+        type="text"
+        autocomplete="off"
+        placeholder="Search for a movie"
+        class="focus:outline-none py-2 px-2 w-full bg-inherit text-[#6B7280] dark:text-[#A5A5A5]"
+        />
+      </div>
+          <!--// SEARCH INPUT //-->
+          <!-- submit search -->
+          <button
+          type="submit"
+          class="py-2 px-[0.6875rem] w-[7.5rem] bg-[#F9FAFB] dark:bg-[#4B4B4B] dark:text-white text-black text-sm font-medium rounded-r-md rounded-br-md"
+          >
+          Search
+        </button>
+      </form>
+      <!--// FORM //-->
+    </header>
+      <!--// HEADER //-->
+      <!-- MOVIE SECTION -->
+      <section class="mt-11 min-h-screen phone:mx-5 md:mx-11 mx-3">
+        <!-- OUTPUT -->
+        <div
+        id="saved-movies"
+        class="flex flex-col text-black dark:text-white"
+        >
+        <!-- SEARCH FOR SOMETHING put this inside output movies later -->
+        <div
+          id="search-placeholder"
+          class="flex flex-col items-center absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-1/2"
+        >
+          <h1 class="text-[#DFDDDD] dark:text-[#2E2E2F] font-bold text-lg mt-2">
+            Your watchlist is looking a little empty...
+          </h1>
+          <a class="flex gap-x-[0.44rem] mt-[0.94rem]" href="../index.html">
+            <img class="dark:hidden block" src="../images/add-movie-icon.svg" alt="add">
+            <img class="dark:block hidden" src="../images/add-movie-icon-dark.svg" alt="add">
+            <p class="text-sm">Let's add some movies!</p>
+          </a>
+        </div>
+        <!--// SEARCH FOR SOMETHING //-->
+        
+          
+        </div>
+        <!-- OUTPUT -->
+      </section>
+      <!--// MOVIE SECTION //-->
+    </div>
+    <!-- CONTAINER -->
+    <!-- LOADING SCREEN -->
+    <div id="loading-screen" class="absolute w-screen h-screen bg-gray-600 z-10 bg-opacity-30 flex hidden">
+      <div class="w-52 h-52 border-2 border-black border-r-white m-auto rounded-full animate-spin"></div>
+    </div>
+    <!--// LOADING SCREEN // -->
+    <script type="module" src="./watchlist.js"></script>
+  </body>
 </html>

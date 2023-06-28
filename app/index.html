@@ -94,48 +94,25 @@
         <!-- OUTPUT -->
       </section>
       <!--// MOVIE SECTION //-->
+      <!-- CHANGE THEME -->
+      <div class="p-4">
+        <label for="change-theme" class="w-10 h-10 bg-[#121313] absolute top-3 rounded-full flex justify-center items-center">
+          <span>&#127769;</span>
+          <input hidden id="change-theme" type="checkbox">
+
+        </label>
+
+      </div>
+      <!--// CHANGE THEME //-->
     </div>
     <!-- CONTAINER -->
     <!-- LOADING SCREEN -->
     <div id="loading-screen" class="absolute w-screen h-screen bg-gray-600 z-10 bg-opacity-30 flex hidden">
       <div class="w-52 h-52 border-2 border-black border-r-white m-auto rounded-full animate-spin"></div>
+      
     </div>
     <!--// LOADING SCREEN //-->
-    <script type="module" src="/main.js"></script>
+    <script src="./main.js" type="module"></script>
+
   </body>
 </html>
-<!-- if things didnt work put this in #output-movies div -->
-  <!-- <div class="flex">
-    <img src="./images/movie-pic-test.png" class="max-w-[6.5rem] max-h-[9.2rem]" alt="movie-pic" />
-    <div class="ml-[1.31rem]">
-      <div class="flex items-center">
-        <h1 class="text-lg font-medium mr-2">Blade Runner</h1>
-        <span class="flex ">
-          <img
-            class="mr-1 w-[0.9375rem] h-[0.9375rem]"
-            src="./images/star-icon.svg"
-            alt="star"
-          />
-          <p class="text-xs">8.1</p>
-        </span>
-      </div>
-      <div class="flex mt-[0.69rem]">
-        <p class="sm:mr-[1.19rem] mr-3 text-xs">117 min</p>
-        <p class="sm:mr-[1.19rem] mr-3 text-xs">Action, Drama, Sci-fi</p>
-        <input hidden type="checkbox" id="MOVIE-ID-HERE" />
-        <label for="MOVIE-ID-HERE" class="text-xs gap-x-[0.31rem] flex sm:w-fit phone:ml-0 ml-auto">
-          <img class="dark:hidden phone:w-fit w-5" src="./images/add-movie-icon.svg" alt="" />
-          <img class="dark:block hidden phone:w-fit w-5" src="./images/add-movie-icon-dark.svg" alt="" />
-          <p class="phone:block hidden">Watchlist</p>
-        </label>
-      </div>
-      <div class="flex mt-2">
-        <p class="text-[#6B7280] dark:text-[#A5A5A5] max-w-xs text-sm">
-          A blade runner must pursue and terminate four replicants who
-          stole a ship in space, and have returned to Earth to find
-          their creator.
-        </p>
-      </div>
-    </div>
-  </div>
-  <hr class="bg-[#E5E7EB] w-full my-[1.3rem]" /> -->
