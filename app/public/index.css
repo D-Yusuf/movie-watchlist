@@ -4,7 +4,8 @@
 
 @layer base{
     *{
-        transition: all 200ms;
+        transition: all 100ms;
+        -webkit-tap-highlight-color: transparent;
     }
     .image-light{
         @apply dark:hidden phone:w-fit min-w-[1.25rem]; 
