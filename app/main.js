@@ -1,4 +1,3 @@
-
 import {
   apiKey,
   getImdb,
@@ -6,7 +5,8 @@ import {
   renderMovies,
   changeCheckBoxIcon,
   setCheckBoxes,
-  saveToLocalStorage
+  saveToLocalStorage,
+  removeFromLocalStorage,
 } from "./public/utils.js";
 
 export let savedMoviesIdArr = [];
@@ -23,14 +23,14 @@ const searchForm = document.getElementById("search-form");
 const searchPlaceholder = document.getElementById("search-placeholder");
 window.onload = getLocalStorageItems; // onload
 
-export function getLocalStorageItems(){
+export function getLocalStorageItems() {
   if (moviesFromLocalStorage) {
     savedMoviesIdArr = moviesFromLocalStorage;
   }
   if (checkBoxesFromLocalStorage) {
-    checkedBoxesIdArr =  checkBoxesFromLocalStorage;
+    checkedBoxesIdArr = checkBoxesFromLocalStorage;
   }
-  
+
   setCheckBoxes(checkedBoxesIdArr);
 }
 
@@ -50,30 +50,35 @@ searchForm.addEventListener("submit", (e) => {
       } else {
         renderMovies(data.Search, checkedBoxesIdArr);
       }
-      
     });
 });
 
 document.addEventListener("click", addOrRemoveToWatchlist);
-function addOrRemoveToWatchlist(e){
+export function addOrRemoveToWatchlist(e) {
   if (e.target.dataset.id) {
-    
-    const newlyCheckedBoxes = Array.from(
-      document.querySelectorAll(`input[type="checkbox"]:checked`)
-    ).map((box) => box.id);
+    const checkboxId = e.target.id;
 
-    // Merge the newly selected checkboxes with the existing ones
-    checkedBoxesIdArr = [...checkedBoxesIdArr, ...newlyCheckedBoxes];
+    if (!e.target.checked) {
+      removeFromLocalStorage(checkboxId);
+      checkedBoxesIdArr = checkedBoxesIdArr.filter(id => id !== checkboxId);
+      savedMoviesIdArr = checkedBoxesIdArr;
+      changeCheckBoxIcon();
+      saveToLocalStorage("savedMovies", savedMoviesIdArr);
+      saveToLocalStorage("checkedBoxes", checkedBoxesIdArr);
+    } else {
+      const newlyCheckedBoxes = Array.from(
+        document.querySelectorAll(`[data-id="${e.target.dataset.id}"]`)
+      ).map((box) => box.id);
 
-    // Remove duplicates from the checkedBoxesIdArr
-    checkedBoxesIdArr = Array.from(new Set(checkedBoxesIdArr));
-      console.log(checkedBoxesIdArr)
-      savedMoviesIdArr = checkedBoxesIdArr.slice();
-    changeCheckBoxIcon();
-    saveToLocalStorage("savedMovies", savedMoviesIdArr);
-    saveToLocalStorage("checkedBoxes", checkedBoxesIdArr);
+      // Merge the newly selected checkboxes with the existing ones
+      checkedBoxesIdArr = [...checkedBoxesIdArr, ...newlyCheckedBoxes];
+
+      // Remove duplicates from the checkedBoxesIdArr
+      checkedBoxesIdArr = Array.from(new Set(checkedBoxesIdArr));
+      savedMoviesIdArr = checkedBoxesIdArr;
+      changeCheckBoxIcon();
+      saveToLocalStorage("savedMovies", savedMoviesIdArr);
+      saveToLocalStorage("checkedBoxes", checkedBoxesIdArr);
+    }
   }
-
 }
-
-

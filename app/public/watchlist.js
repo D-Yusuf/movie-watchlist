@@ -3,7 +3,7 @@ import addIcon from "../images/add-movie-icon.svg";
 import addIconDark from "../images/add-movie-icon-dark.svg";
 import removeIcon from "../images/remove-movie-icon.svg";
 import removeIconDark from "../images/remove-movie-icon-dark.svg";
-import { apiKey, setCheckBoxes, saveToLocalStorage } from "./utils.js";
+import { apiKey, setCheckBoxes, saveToLocalStorage, removeFromLocalStorage } from "./utils.js";
 import { moviesFromLocalStorage, checkBoxesFromLocalStorage, getLocalStorageItems } from "../main.js";
 import { checkedBoxesIdArr, savedMoviesIdArr } from "../main.js";
 const savedMovies = document.getElementById("saved-movies");
@@ -55,7 +55,7 @@ async function renderWatchlist() {
 }
 async function getSearchedMovies() {
     let searchedMovies = [];
-    for (let id of moviesId) {
+    for (let id of moviesFromLocalStorage) {
       await fetch(`https://www.omdbapi.com/?apikey=${apiKey}&i=${id}`)
         .then((res) => res.json())
         .then((data) => searchedMovies.push(data));
@@ -65,10 +65,20 @@ async function getSearchedMovies() {
 
 window.onload = ()=>{
     getLocalStorageItems()
-    if(moviesId.length){
+    if(moviesFromLocalStorage.length){
         renderWatchlist()
         
 
     }
 }
+document.addEventListener("click", (e)=>{
+    if (e.target.type === "checkbox") {
+        const checkboxId = e.target.id;
+        
+        if (!e.target.checked) {
+          removeFromLocalStorage(checkboxId);
+          
+        }
+      }
+})
 // console.log(moviesFromLocalStorage)
