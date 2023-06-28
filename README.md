@@ -1,14 +1,5 @@
-# Tailwind Vite Template
+# Movie Watchlist
 
-### How to setup
-```
-cd app
-npm install
-npm run dev
-```
-### After finishing project
-```
-npm run build
-npm run preview
-```
-### If all is good then it is ready to deploy :)
+### Project by [scrimba.com](https://scrimba.com)
+
+
