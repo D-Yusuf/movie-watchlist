@@ -11,12 +11,17 @@ import {
 
 export let savedMoviesIdArr = [];
 export let checkedBoxesIdArr = [];
+let count = 0
 export const moviesFromLocalStorage = JSON.parse(
   localStorage.getItem("savedMovies")
 );
 export const checkBoxesFromLocalStorage = JSON.parse(
   localStorage.getItem("checkedBoxes")
 );
+const countFromLocalStorage = JSON.parse(
+  localStorage.getItem("themeCount")
+);
+const changeThemeBtn = document.getElementById("change-theme")
 
 export const loadingScreen = document.getElementById("loading-screen");
 const searchForm = document.getElementById("search-form");
@@ -30,15 +35,30 @@ export function getLocalStorageItems() {
   if (checkBoxesFromLocalStorage) {
     checkedBoxesIdArr = checkBoxesFromLocalStorage;
   }
+  if (countFromLocalStorage) {
+    count = countFromLocalStorage;
+    getCurrentTheme()
+  }
 
   setCheckBoxes(checkedBoxesIdArr);
+}
+function getCurrentTheme(){
+  const symbol = changeThemeBtn.querySelector("span")
+  if(count % 2 === 0){
+    document.documentElement.classList.add("dark")
+    symbol.innerHTML = "&#127769;"
+  }else{
+    document.documentElement.classList.remove("dark")
+    symbol.innerHTML = "&#9728;"
+    
+  }
 }
 
 searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const searchedMovie = document.getElementById("movie-search").value;
   loadingScreen.classList.remove("hidden"); //add loading screen
-  getLocalStorageItems();
+  // getLocalStorageItems();
   fetch(`https://www.omdbapi.com/?apikey=${apiKey}&s=${searchedMovie}`)
     .then((res) => res.json())
     .then((data) => {
@@ -55,7 +75,7 @@ searchForm.addEventListener("submit", (e) => {
 
 document.addEventListener("click", addOrRemoveToWatchlist);
 export function addOrRemoveToWatchlist(e) {
-  if (e.target.dataset.id) {
+  if (e.target.dataset.id && e.target.type == "checkbox") {
     const checkboxId = e.target.id;
 
     if (!e.target.checked) {
@@ -81,4 +101,12 @@ export function addOrRemoveToWatchlist(e) {
       saveToLocalStorage("checkedBoxes", checkedBoxesIdArr);
     }
   }
+}
+
+changeThemeBtn.addEventListener("click", changeTheme)
+function changeTheme(){
+  count += 1
+  getCurrentTheme()
+  if(count == 2){count = 0}
+  saveToLocalStorage("themeCount", count)
 }
