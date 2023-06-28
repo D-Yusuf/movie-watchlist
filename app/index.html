@@ -25,94 +25,102 @@
         class="bg-hero bg-[#121212] py-20 sm:px-[2.6rem] px-4 bg-no-repeat bg-cover text-white flex justify-between flex-col"
       >
         <div class="flex justify-between">
-          <h1 class="sm:text-[2.67rem] text-3xl font-extrabold">Find your film</h1>
-          <a href="./public/watchlist.html" class="self-center underline">My Watchlist</a>
+          <h1 class="sm:text-[2.67rem] text-3xl font-extrabold">
+            Find your film
+          </h1>
+          <a href="./public/watchlist.html" class="self-center underline"
+            >My Watchlist</a
+          >
         </div>
         <!-- FORM -->
         <form
-        id="search-form"
-        class="relative top-[6rem] w-full flex ring-1 ring-[#D1D5DB] dark:ring-0 rounded-md"
+          id="search-form"
+          class="relative top-[6rem] w-full flex ring-1 ring-[#D1D5DB] dark:ring-0 rounded-md"
         >
-        <!-- SEARCH INPUT -->
-        <div
-        class="w-full rounded-l-md rounded-b-md text-[#6B7280] bg-white dark:bg-[#2E2E2F] flex"
-        >
-        <label for="movie-search" class="py-2 pl-3"
-        ><img src="./images/search-icon.svg" alt="search" class="w-5 h-5"
-        /></label>
-        <input
-        required
-        id="movie-search"
-        type="text"
-        autocomplete="off"
-        placeholder="Search for a movie"
-        class="focus:outline-none py-2 px-2 w-full bg-inherit text-[#6B7280] dark:text-[#A5A5A5]"
-        />
-      </div>
+          <!-- SEARCH INPUT -->
+          <div
+            class="w-full rounded-l-md rounded-b-md text-[#6B7280] bg-white dark:bg-[#2E2E2F] flex"
+          >
+            <label for="movie-search" class="py-2 pl-3"
+              ><img src="./images/search-icon.svg" alt="search" class="w-5 h-5"
+            /></label>
+            <input
+              required
+              id="movie-search"
+              type="text"
+              autocomplete="off"
+              placeholder="Search for a movie"
+              class="focus:outline-none py-2 px-2 w-full bg-inherit text-[#6B7280] dark:text-[#A5A5A5]"
+            />
+          </div>
           <!--// SEARCH INPUT //-->
           <!-- submit search -->
           <button
-          type="submit"
-          class="py-2 px-[0.6875rem] w-[7.5rem] bg-[#F9FAFB] dark:bg-[#4B4B4B] dark:text-white text-black text-sm font-medium rounded-r-md rounded-br-md"
+            type="submit"
+            class="py-2 px-[0.6875rem] w-[7.5rem] bg-[#F9FAFB] dark:bg-[#4B4B4B] dark:text-white text-black text-sm font-medium rounded-r-md rounded-br-md"
           >
-          Search
-        </button>
-      </form>
-      <!--// FORM //-->
-    </header>
+            Search
+          </button>
+        </form>
+        <!--// FORM //-->
+      </header>
       <!--// HEADER //-->
       <!-- MOVIE SECTION -->
       <section class="mt-11 min-h-screen phone:mx-5 md:mx-11 mx-3">
         <!-- OUTPUT -->
         <div
-        id="output-movies"
-        class="flex flex-col text-black dark:text-white"
+          id="output-movies"
+          class="flex flex-col text-black dark:text-white"
         >
-        <!-- SEARCH FOR SOMETHING put this inside output movies later -->
-        <div
-          id="search-placeholder"
-          class="flex flex-col items-center absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-1/2"
-        >
-          <img
-            class="w-[4.375rem] h-[3.828rem] dark:hidden"
-            src="./images/movie-icon.svg"
-            alt="movie-icon"
-          />
-          <img
-            class="w-[4.375rem] h-[3.828rem] hidden dark:block"
-            src="./images/movie-icon-dark.svg"
-            alt="movie-icon"
-          />
-          <h1 class="text-[#DFDDDD] dark:text-[#2E2E2F] font-bold text-lg mt-2">
-            Start exploring
-          </h1>
-        </div>
-        <!--// SEARCH FOR SOMETHING //-->
-        
-          
+          <!-- SEARCH FOR SOMETHING put this inside output movies later -->
+          <div
+            id="search-placeholder"
+            class="flex flex-col items-center absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-1/2"
+          >
+            <img
+              class="w-[4.375rem] h-[3.828rem] dark:hidden"
+              src="./images/movie-icon.svg"
+              alt="movie-icon"
+            />
+            <img
+              class="w-[4.375rem] h-[3.828rem] hidden dark:block"
+              src="./images/movie-icon-dark.svg"
+              alt="movie-icon"
+            />
+            <h1
+              class="text-[#DFDDDD] dark:text-[#2E2E2F] font-bold text-lg mt-2"
+            >
+              Start exploring
+            </h1>
+          </div>
+          <!--// SEARCH FOR SOMETHING //-->
         </div>
         <!-- OUTPUT -->
       </section>
       <!--// MOVIE SECTION //-->
       <!-- CHANGE THEME -->
       <div class="p-4">
-        <label for="change-theme" class="w-10 h-10 bg-[#121313] absolute top-3 rounded-full flex justify-center items-center">
+        <button
+          class="w-20 h-10 bg-[#121313] absolute top-3 rounded-full flex justify-center items-center"
+          id="change-theme"
+          type="checkbox"
+        >
           <span>&#127769;</span>
-          <input hidden id="change-theme" type="checkbox">
-
-        </label>
-
+        </button>
       </div>
       <!--// CHANGE THEME //-->
     </div>
     <!-- CONTAINER -->
     <!-- LOADING SCREEN -->
-    <div id="loading-screen" class="absolute w-screen h-screen bg-gray-600 z-10 bg-opacity-30 flex hidden">
-      <div class="w-52 h-52 border-2 border-black border-r-white m-auto rounded-full animate-spin"></div>
-      
+    <div
+      id="loading-screen"
+      class="absolute w-screen h-screen bg-gray-600 z-10 bg-opacity-30 flex hidden"
+    >
+      <div
+        class="w-52 h-52 border-2 border-black border-r-white m-auto rounded-full animate-spin"
+      ></div>
     </div>
     <!--// LOADING SCREEN //-->
     <script src="./main.js" type="module"></script>
-
   </body>
 </html>

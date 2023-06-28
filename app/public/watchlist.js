@@ -3,9 +3,9 @@ import addIcon from "../images/add-movie-icon.svg";
 import addIconDark from "../images/add-movie-icon-dark.svg";
 import removeIcon from "../images/remove-movie-icon.svg";
 import removeIconDark from "../images/remove-movie-icon-dark.svg";
-import { apiKey, setCheckBoxes, getSearchedImdb } from "./utils.js";
-import { moviesFromLocalStorage, checkBoxesFromLocalStorage } from "../main.js";
-import { checkedBoxesIdArr } from "../main.js";
+import { apiKey, setCheckBoxes, saveToLocalStorage } from "./utils.js";
+import { moviesFromLocalStorage, checkBoxesFromLocalStorage, getLocalStorageItems } from "../main.js";
+import { checkedBoxesIdArr, savedMoviesIdArr } from "../main.js";
 const savedMovies = document.getElementById("saved-movies");
 // setCheckBoxes()
 let moviesId = moviesFromLocalStorage;
@@ -51,7 +51,7 @@ async function renderWatchlist() {
           `;
       });
       savedMovies.innerHTML = moviesHtml;
-      setCheckBoxes()
+      setCheckBoxes(checkBoxesFromLocalStorage)
 }
 async function getSearchedMovies() {
     let searchedMovies = [];
@@ -64,8 +64,10 @@ async function getSearchedMovies() {
   }
 
 window.onload = ()=>{
+    getLocalStorageItems()
     if(moviesId.length){
         renderWatchlist()
+        
 
     }
 }
